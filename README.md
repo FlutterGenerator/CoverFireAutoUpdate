@@ -6,7 +6,7 @@
 # Cover Fire Version: (354) – 1.33.11
 **Google Play Release Date:** 28 November 2025
 
-![](img1.jpg)
+![](img.jpg)
 ![](img2.jpg)
 
 ## Download
