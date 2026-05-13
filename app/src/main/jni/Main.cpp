@@ -303,7 +303,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     const char *features[] = {
     //👇🏻---YOUR MENU---👇🏻
             OBFUSCATE("Category_CoverFire All Mod"),
-            OBFUSCATE("1_SeekBar_👉 VIP Level 5 Activated_1_5"),
+            OBFUSCATE("1_Toggle_👉 VIP Level 5 Activated"),
             OBFUSCATE("2_Toggle_👉 For Unlimited Cash"),
             OBFUSCATE("3_Toggle_👉 For Unlimited Gold"),
             OBFUSCATE("4_Toggle_👉 For Unlimited Energy"),
