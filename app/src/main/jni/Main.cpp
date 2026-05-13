@@ -276,6 +276,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
 			OBFUSCATE("6_Toggle_👉 For Unlimited Event Tickets"),
 			OBFUSCATE("7_Toggle_👉 For Instant Reload"),
 			OBFUSCATE("8_Toggle_👉 For Unlimited Health"),
+    OBFUSCATE("9_Toggle_👉 No Direct Damage"),
 			
     };
 
@@ -325,7 +326,9 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
     break;
 	case 8:
     Ismod8 = boolean;
-	Ismod9 = boolean;
+    break;
+ case 9:
+    Ismod9 = boolean;
     break;
     }
 }
