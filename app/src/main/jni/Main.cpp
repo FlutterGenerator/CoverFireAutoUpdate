@@ -89,7 +89,7 @@ int mod6(void *instance) {
 float (*old_mod7)(void *instance);
 float mod7(void *instance) {
     if (instance != NULL && Ismod7) {
-          return 0;
+          return 0.0f;
     }
     return old_mod7(instance);
 }
