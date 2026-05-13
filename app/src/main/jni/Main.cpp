@@ -26,7 +26,7 @@
 
 //---👇🏻PUT YOUR BOOL&FLOAT HERE👇🏻---
 
-int Ismod1 = 5;
+int Ismod1 = 0;
 bool Ismod2 = false;
 bool Ismod3 = false;
 bool Ismod4 = false;
@@ -40,7 +40,7 @@ bool Ismod9 = false;
 
 int (*old_mod1)(void *instance);
 int mod1(void *instance) {
-    if (instance != NULL && Ismod1) {
+    if (instance != NULL && Ismod1 > 0) {
           return Ismod1;
     }
     return old_mod1(instance);
@@ -94,22 +94,57 @@ float mod7(void *instance) {
     return old_mod7(instance);
 }
 
-void (*old_mod8)(void *instance, bool value);
-void mod8(void *instance, bool value) {
-    if (instance != NULL && Ismod8) {
-        old_mod8(instance, false);
-        return;
+struct Vector3 {
+    float x, y, z;
+};
+
+void (*old_mod8)(
+    void *instance,
+    float damage,
+    Vector3 direccionDamage,
+    Vector3 puntoImpactoFinal,
+    Vector3 direccionHitNormal,
+    void *objcreater,
+    int _origenDamage,
+    void *obj_origen
+);
+
+void mod8(
+    void *instance,
+    float damage,
+    Vector3 direccionDamage,
+    Vector3 puntoImpactoFinal,
+    Vector3 direccionHitNormal,
+    void *objcreater,
+    int _origenDamage,
+    void *obj_origen
+) {
+    if (instance && Ismod8) {
+        return; // no damage
     }
-    return old_mod8(instance, value);
+    old_mod8(instance, damage, direccionDamage, puntoImpactoFinal,
+             direccionHitNormal, objcreater, _origenDamage, obj_origen);
 }
 
-void (*old_mod9)(void *instance, bool value);
-void mod9(void *instance, bool value) {
-    if (instance != NULL && Ismod9) {
-        old_mod9(instance, false);
-        return;
+void (*old_mod9)(
+    void *instance,
+    float damage,
+    Vector3 direccionDamage,
+    Vector3 puntoImpactoFinal,
+    int _origenDamage
+);
+
+void mod9(
+    void *instance,
+    float damage,
+    Vector3 direccionDamage,
+    Vector3 puntoImpactoFinal,
+    int _origenDamage
+) {
+    if (instance && Ismod9) {
+        return; // no direct damage
     }
-    return old_mod9(instance, value);
+    old_mod9(instance, damage, direccionDamage, puntoImpactoFinal, _origenDamage);
 }
 
 ProcMap il2cppMap;
@@ -276,7 +311,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
 			OBFUSCATE("6_Toggle_👉 For Unlimited Event Tickets"),
 			OBFUSCATE("7_Toggle_👉 For Instant Reload"),
 			OBFUSCATE("8_Toggle_👉 For Unlimited Health"),
-    OBFUSCATE("9_Toggle_👉 No Direct Damage"),
+			OBFUSCATE("9_Toggle_👉 No Direct Damage"),
 			
     };
 
@@ -327,7 +362,7 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
 	case 8:
     Ismod8 = boolean;
     break;
- case 9:
+    case 9:
     Ismod9 = boolean;
     break;
     }
