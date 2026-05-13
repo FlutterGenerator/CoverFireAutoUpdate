@@ -26,7 +26,7 @@
 
 //---👇🏻PUT YOUR BOOL&FLOAT HERE👇🏻---
 
-int Ismod1 = 0;
+bool Ismod1 = false;
 bool Ismod2 = false;
 bool Ismod3 = false;
 bool Ismod4 = false;
@@ -40,8 +40,8 @@ bool Ismod9 = false;
 
 int (*old_mod1)(void *instance);
 int mod1(void *instance) {
-    if (instance != NULL && Ismod1 > 0) {
-          return Ismod1;
+    if (instance != NULL && Ismod1) {
+          return 5;
     }
     return old_mod1(instance);
 }
@@ -49,7 +49,7 @@ int mod1(void *instance) {
 int (*old_mod2)(void *instance);
 int mod2(void *instance) {
     if (instance != NULL && Ismod2) {
-          return 999999;
+          return 999;
     }
     return old_mod2(instance);
 }
@@ -57,7 +57,7 @@ int mod2(void *instance) {
 int (*old_mod3)(void *instance);
 int mod3(void *instance) {
     if (instance != NULL && Ismod3) {
-          return 999999;
+          return 999;
     }
     return old_mod3(instance);
 }
@@ -65,7 +65,7 @@ int mod3(void *instance) {
 int (*old_mod4)(void *instance);
 int mod4(void *instance) {
     if (instance != NULL && Ismod4) {
-          return 999999;
+          return 999;
     }
     return old_mod4(instance);
 }
@@ -73,7 +73,7 @@ int mod4(void *instance) {
 int (*old_mod5)(void *instance);
 int mod5(void *instance) {
     if (instance != NULL && Ismod5) {
-          return 999999;
+          return 999;
     }
     return old_mod5(instance);
 }
@@ -81,7 +81,7 @@ int mod5(void *instance) {
 int (*old_mod6)(void *instance);
 int mod6(void *instance) {
     if (instance != NULL && Ismod6) {
-          return 999999;
+          return 999;
     }
     return old_mod6(instance);
 }
@@ -150,7 +150,7 @@ void mod9(
 ProcMap il2cppMap;
 void *hack_thread(void *) {
     LOGI(OBFUSCATE("pthread created"));
-    
+
     do {
         il2cppMap = KittyMemory::getLibraryMap("libil2cpp.so");
          sleep(5); // Don't Increase
@@ -167,10 +167,10 @@ void *hack_thread(void *) {
     do {
         sleep(5);
     } while (!isLibraryLoaded("MyLibName.so"));
-	
-	*/
-    
-    
+        
+        */
+
+
     LOGI(OBFUSCATE("%s has been loaded"), (const char *) targetLibName);
 
 
@@ -304,15 +304,15 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     //👇🏻---YOUR MENU---👇🏻
             OBFUSCATE("Category_CoverFire All Mod"),
             OBFUSCATE("1_SeekBar_👉 VIP Level 5 Activated_1_5"),
-			OBFUSCATE("2_Toggle_👉 For Unlimited Cash"),
-			OBFUSCATE("3_Toggle_👉 For Unlimited Gold"),
-			OBFUSCATE("4_Toggle_👉 For Unlimited Energy"),
-			OBFUSCATE("5_Toggle_👉 For Unlimited Battle Tickets"),
-			OBFUSCATE("6_Toggle_👉 For Unlimited Event Tickets"),
-			OBFUSCATE("7_Toggle_👉 For Instant Reload"),
-			OBFUSCATE("8_Toggle_👉 For Unlimited Health"),
-			OBFUSCATE("9_Toggle_👉 No Direct Damage"),
-			
+            OBFUSCATE("2_Toggle_👉 For Unlimited Cash"),
+            OBFUSCATE("3_Toggle_👉 For Unlimited Gold"),
+            OBFUSCATE("4_Toggle_👉 For Unlimited Energy"),
+            OBFUSCATE("5_Toggle_👉 For Unlimited Battle Tickets"),
+            OBFUSCATE("6_Toggle_👉 For Unlimited Event Tickets"),
+            OBFUSCATE("7_Toggle_👉 For Instant Reload"),
+            OBFUSCATE("8_Toggle_👉 For Unlimited Health"),
+            OBFUSCATE("9_Toggle_👉 No Direct Damage"),
+
     };
 
     //MODDED BY LIYA HACK
@@ -334,32 +334,32 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
     LOGD(OBFUSCATE("Feature name: %d - %s | Value: = %d | Bool: = %d | Text: = %s"), featNum,
          env->GetStringUTFChars(featName, 0), value,
          boolean, str != NULL ? env->GetStringUTFChars(str, 0) : "");
-		 
-		 
-		 
+
+
+
     switch (featNum) {
     case 1:
-    Ismod1 = value;
+    Ismod1 = boolean;
     break;
-	case 2:
-	Ismod2 = boolean;
+    case 2:
+    Ismod2 = boolean;
     break;
-	case 3:
-	Ismod3 = boolean;
+    case 3:
+    Ismod3 = boolean;
     break;
-	case 4:
-	Ismod4 = boolean;
-	break;
-	case 5:
-	Ismod5 = boolean;
-	break;
-	case 6:
-	Ismod6 = boolean;
-	break;
-	case 7:
+    case 4:
+    Ismod4 = boolean;
+    break;
+    case 5:
+    Ismod5 = boolean;
+    break;
+    case 6:
+    Ismod6 = boolean;
+    break;
+    case 7:
     Ismod7 = boolean;
     break;
-	case 8:
+    case 8:
     Ismod8 = boolean;
     break;
     case 9:
