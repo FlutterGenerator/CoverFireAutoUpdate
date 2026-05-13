@@ -26,7 +26,7 @@
 
 //---👇🏻PUT YOUR BOOL&FLOAT HERE👇🏻---
 
-bool Ismod1 = false;
+int Ismod1 = 5;
 bool Ismod2 = false;
 bool Ismod3 = false;
 bool Ismod4 = false;
@@ -41,7 +41,7 @@ bool Ismod9 = false;
 int (*old_mod1)(void *instance);
 int mod1(void *instance) {
     if (instance != NULL && Ismod1) {
-          return 5;
+          return Ismod1;
     }
     return old_mod1(instance);
 }
@@ -268,7 +268,7 @@ jobjectArray GetFeatureList(JNIEnv *env, jobject context) {
     const char *features[] = {
     //👇🏻---YOUR MENU---👇🏻
             OBFUSCATE("Category_CoverFire All Mod"),
-            OBFUSCATE("1_Toggle_👉 VIP Level 5 Activated"),
+            OBFUSCATE("1_SeekBar_👉 VIP Level 5 Activated_1_5"),
 			OBFUSCATE("2_Toggle_👉 For Unlimited Cash"),
 			OBFUSCATE("3_Toggle_👉 For Unlimited Gold"),
 			OBFUSCATE("4_Toggle_👉 For Unlimited Energy"),
@@ -304,7 +304,7 @@ void Changes(JNIEnv *env, jclass clazz, jobject obj,
 		 
     switch (featNum) {
     case 1:
-    Ismod1 = boolean;
+    Ismod1 = value;
     break;
 	case 2:
 	Ismod2 = boolean;
